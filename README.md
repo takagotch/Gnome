@@ -32,6 +32,10 @@ class TestPyOCR(unittest.TestCase):
     @patch("pyocr.libtesseract.tesseract_raw.g_libtesseract")
     @patch("pyocr.libtesseract.tesseract_raw.is_available")
     @patch("shutil.which")
+    def test_available_tools_tesseract3(self, which, is_available, libtess):
+      which.return_value = True
+      is_available.return_value = True
+      libtess.TessVersion.retrun_value = b"3.5.0"
   
   
 
